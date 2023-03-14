@@ -5,6 +5,7 @@ import { Box } from "@mui/material";
 import { Container, Divider } from "@mui/material";
 import Services from "../containers/Service";
 import WhyChooseUs from "../containers/WhyChooseUs.js"
+import Footer from "../containers/Footer";
 
 const Home = () => {
   return (
@@ -16,7 +17,10 @@ const Home = () => {
 
       <Divider />
       <Services />
-      <WhyChooseUs/>
+      <Divider />
+      <WhyChooseUs />
+      <Divider />
+      <Footer />
     </>
   );
 };

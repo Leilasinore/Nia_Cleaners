@@ -6,16 +6,28 @@ import ServicesThreeImg from "../assets/images/services3.svg";
 import { Container, Box, Typography, Grid } from "@mui/material";
 import BasicButton from "../components/BasicButton";
 import AddIcon from "@mui/icons-material/Add";
+
 const Services = () => {
   return (
     <Container maxWidth="xl">
       <Box py={2}>
-        <Typography variant="h4">Our Services</Typography>
+        <Typography variant="h4">
+          <Box component="span" sx={{ color: "primary.main" }}>
+            Our{" "}
+          </Box>
+          <Box component="span" sx={{ color: "secondary.main" }}>
+            Services
+          </Box>
+        </Typography>
       </Box>
       <Grid container spacing={2}>
         <Grid item lg={4} xs={12}>
           <Image src={ServicesOneImg} />
-          <Typography variant="subtitle1" gutterBottom>
+          <Typography
+            variant="h6"
+            gutterBottom
+            sx={{ color: "secondary.main" }}
+          >
             Carpet Cleaning
           </Typography>
           <Typography variant="body1" gutterBottom color="textSecondary">
@@ -23,13 +35,17 @@ const Services = () => {
             nisi nec nisl ornare volutpat. Curabitur iaculis porta dui, quis
             auctor lacus hendrerit vitae.
           </Typography>
-          <BasicButton variant="text" endIcon={<AddIcon />}>
+          <BasicButton variant="contained" endIcon={<AddIcon />}>
             Learn More{" "}
           </BasicButton>
         </Grid>
         <Grid item lg={4} xs={12}>
           <Image src={ServicesTwoImg} />
-          <Typography variant="subtitle1" gutterBottom>
+          <Typography
+            variant="h6"
+            gutterBottom
+            sx={{ color: "secondary.main" }}
+          >
             Carpet Cleaning
           </Typography>
           <Typography variant="body1" gutterBottom color="textSecondary">
@@ -37,14 +53,18 @@ const Services = () => {
             nisi nec nisl ornare volutpat. Curabitur iaculis porta dui, quis
             auctor lacus hendrerit vitae.
           </Typography>
-          <BasicButton variant="text" endIcon={<AddIcon />}>
+          <BasicButton variant="contained" endIcon={<AddIcon />} onClick={{}}>
             Learn More{" "}
           </BasicButton>
         </Grid>
 
         <Grid item lg={4} xs={12}>
           <Image src={ServicesThreeImg} />
-          <Typography variant="subtitle1" gutterBottom>
+          <Typography
+            variant="h6"
+            gutterBottom
+            sx={{ color: "secondary.main" }}
+          >
             Carpet Cleaning
           </Typography>
           <Typography variant="body1" gutterBottom color="textSecondary">
@@ -52,12 +72,12 @@ const Services = () => {
             nisi nec nisl ornare volutpat. Curabitur iaculis porta dui, quis
             auctor lacus hendrerit vitae.
           </Typography>
-          <BasicButton variant="text" endIcon={<AddIcon />}>
+          <BasicButton variant="contained" endIcon={<AddIcon />}>
             Learn More{" "}
           </BasicButton>
         </Grid>
       </Grid>
-      <Box sx={{ textAlign: "center" }} gutterBottom>
+      <Box sx={{ textAlign: "center", mt: 3 }} gutterBottom>
         <BasicButton variant="outlined">Load More</BasicButton>
       </Box>
     </Container>
