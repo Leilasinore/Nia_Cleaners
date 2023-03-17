@@ -3,8 +3,15 @@ import { Grid, Box, Container, Typography } from "@mui/material";
 import Image from "../components/Image";
 import HeroImage from "../assets/images/hero.svg";
 import BasicButton from "../components/BasicButton";
+import { useNavigate } from "react-router-dom";
 
 export default function Heroabout() {
+  const navigate = useNavigate();
+
+  const contactusRedirect = () => {
+    // 👇️ navigate to /contacts
+    navigate("/contactus");
+  };
   return (
     <Container maxWidth="xl">
       <Box py={2}>
@@ -35,6 +42,7 @@ export default function Heroabout() {
             <BasicButton
               variant="contained"
               sx={{ color: "white", padding: 1, my: 10, mx: 25, width: 180 }}
+              onClick={contactusRedirect}
             >
               Contact Us
             </BasicButton>

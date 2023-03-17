@@ -20,8 +20,8 @@ export default function Mission() {
           </Box>{" "}
         </Typography>
       </Box>
-      <Grid container spacing={2} py={2}>
-        <Grid item lg={4} xs={12} py={25}>
+      <Grid container spacing={4}>
+        <Grid item lg={4} xs={12} >
           <Box>
             <Card
               sx={{ bgcolor: "white" }}
@@ -47,7 +47,7 @@ export default function Mission() {
             </Card>
           </Box>
         </Grid>
-        <Grid item lg={4} xs={12} py={25}>
+        <Grid item lg={4} xs={12} py={2} my={1}>
           <Card
             sx={{ bgcolor: "white" }}
             maxHeight={500}
@@ -71,7 +71,7 @@ export default function Mission() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item lg={4} xs={12} py={25}>
+        <Grid item lg={4} xs={12} py={2} my={1}>
           <Card
             sx={{ bgcolor: "white" }}
             maxHeight={500}

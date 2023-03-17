@@ -28,7 +28,7 @@ const WhyChooseUs = () => {
         </Typography>
       </Box>
       <Grid container spacing={4}>
-        <Grid sx={{ textAlign: "center" }} py={25} item lg={4} xs={12}>
+        <Grid sx={{ textAlign: "center" }}  item lg={4} xs={12}>
           <Card
             sx={{ boxShadow: 2, bgcolor: "background.default" }}
             maxHeight={500}
@@ -49,7 +49,7 @@ const WhyChooseUs = () => {
             </CardContent>
           </Card>
         </Grid>
-        <Grid sx={{ textAlign: "center" }} py={25} item lg={4} xs={12}>
+        <Grid sx={{ textAlign: "center" }}  item lg={4} xs={12}>
           <Card
             sx={{ bgcolor: "background.default", boxShadow: 2 }}
             maxHeight={500}
@@ -72,7 +72,7 @@ const WhyChooseUs = () => {
         </Grid>
         <Grid
           sx={{ textAlign: "center" }}
-          py={25}
+          py={4}
           md={4}
           item
           lg={4}

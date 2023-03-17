@@ -13,7 +13,7 @@ const WhatweOffer = () => {
       <Header />
       <Divider />
 
-      <Services />
+      <Services py={10} />
       <Divider />
       <Footer />
     </div>

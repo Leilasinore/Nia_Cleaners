@@ -1,7 +1,10 @@
 // src/componetns/Footer.tsx
 
-import React from "react";
-
+import React, { useState } from "react";
+import Input from "@mui/joy/Input";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import firebaseDb from "../firebase";
 import {
   Box,
   Grid,
@@ -13,11 +16,32 @@ import {
 } from "@mui/material";
 import BasicButton from "../components/BasicButton";
 import Phoneimage from "../assets/images/PhoneImage.svg";
-import Envelop from "../assets/images/Envelop.svg"
-import Twitter from "..//assets/images/Twitter.png"
-import  Instagram  from "../assets/images/Instagram.png";
+import Envelop from "../assets/images/Envelop.svg";
+import Twitter from "..//assets/images/Twitter.png";
+import Instagram from "../assets/images/Instagram.png";
 
 function Footer() {
+  const [state, setState] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const { name, email, message } = state;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!name || !email || !message) {
+      toast.error("Please provide value in each input field");
+    } else {
+      firebaseDb.child("contacts").push(state);
+      setState({ name: "", email: "", message: "" });
+      toast.success("Message sent successfully");
+    }
+  };
+  const handleInputChange = (e) => {
+    let { name, value } = e.target;
+    setState({ ...state, [name]: value });
+  };
   return (
     <Box>
       <Grid
@@ -26,9 +50,9 @@ function Footer() {
         sx={{
           bgcolor: "primary.main",
           padding: 2,
-          height: "100vh",
         }}
       >
+        <ToastContainer position="top-center" />
         <Grid item lg={4} xs={12} gutterBottom>
           <Card sx={{ paddingBottom: 1 }}>
             <CardContent>
@@ -43,34 +67,63 @@ function Footer() {
                 }}
                 noValidate
                 autoComplete="off"
+                onSubmit={handleSubmit}
               >
                 <TextField
                   id="outlined-basic"
-                  label="Name"
+                  label="name"
                   variant="outlined"
-                  sx={{ color: "white" }}
+                  onChange={handleInputChange}
+                  name="name"
                 />
                 <TextField
                   id="outlined-basic"
-                  label="Email"
+                  label="email"
                   variant="outlined"
+                  onChange={handleInputChange}
+                  name="email"
                 />
                 <TextField
                   id="outlined-basic"
-                  label="Message"
+                  label="message"
                   variant="outlined"
+                  onChange={handleInputChange}
+                  name="message"
                 />
               </Box>
-              <BasicButton variant="contained" sx={{ color: "white" }}>
+              <BasicButton
+                variant="contained"
+                sx={{ color: "white" }}
+                onClick={handleSubmit}
+              >
                 Submit
               </BasicButton>
             </CardContent>
           </Card>
         </Grid>
         <Grid item lg={4} xs={12}>
-          <Card sx={{ bgcolor: "primary.main" }}>
+          <Card sx={{ bgcolor: "primary.main", borderBlockColor: "white" }}>
             <CardContent>
-              <Typography variant="h6" color="textSecondary">
+              <Box
+                component="a"
+                href="/"
+                sx={{ textDecoration: "none", textAlign: "center" }}
+              >
+                <Box
+                  component="span"
+                  sx={{ color: "white", textAlign: "center" }}
+                  pr={0.5}
+                >
+                  NIA
+                </Box>
+                <Box
+                  component="span"
+                  sx={{ color: "secondary.main", textAlign: "center" }}
+                >
+                  CLEANERS
+                </Box>
+              </Box>
+              <Typography variant="h6" color="white" py={2}>
                 All our pages
               </Typography>
 
@@ -95,6 +148,13 @@ function Footer() {
                 <Link href="/ContactUs" underline="none" color="white">
                   Contact Us
                 </Link>
+              </Box>
+              <Box py={2}>
+                Our Physical location is Nairobi Branch – Kileleshwa, Nairobi,
+                Kenya
+              </Box>
+              <Box color="white" py={2}>
+                “Happiness: A freshly cleaned house.” – Anonymous
               </Box>
             </CardContent>
           </Card>

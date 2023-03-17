@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Image from "../components/Image";
 import ServicesOneImg from "../assets/images/services1.svg";
 import ServicesTwoImg from "../assets/images/services2.svg";
@@ -8,8 +9,18 @@ import BasicButton from "../components/BasicButton";
 import AddIcon from "@mui/icons-material/Add";
 
 const Services = () => {
+  const navigate = useNavigate();
+
+  const navigateServices = () => {
+    // 👇️ navigate to /contacts
+    navigate("/services");
+  };
+  const navigateToContactnow = () => {
+    // 👇️ navigate to /contacts
+    navigate("/contactus");
+  };
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth="xl" py={10}>
       <Box py={2}>
         <Typography variant="h4">
           <Box component="span" sx={{ color: "primary.main" }}>
@@ -35,7 +46,11 @@ const Services = () => {
             nisi nec nisl ornare volutpat. Curabitur iaculis porta dui, quis
             auctor lacus hendrerit vitae.
           </Typography>
-          <BasicButton variant="contained" endIcon={<AddIcon />}>
+          <BasicButton
+            variant="contained"
+            endIcon={<AddIcon />}
+            onClick={navigateServices}
+          >
             Learn More{" "}
           </BasicButton>
         </Grid>
@@ -53,7 +68,11 @@ const Services = () => {
             nisi nec nisl ornare volutpat. Curabitur iaculis porta dui, quis
             auctor lacus hendrerit vitae.
           </Typography>
-          <BasicButton variant="contained" endIcon={<AddIcon />} onClick={{}}>
+          <BasicButton
+            variant="contained"
+            endIcon={<AddIcon />}
+            onClick={navigateServices}
+          >
             Learn More{" "}
           </BasicButton>
         </Grid>
@@ -72,13 +91,19 @@ const Services = () => {
             nisi nec nisl ornare volutpat. Curabitur iaculis porta dui, quis
             auctor lacus hendrerit vitae.
           </Typography>
-          <BasicButton variant="contained" endIcon={<AddIcon />}>
+          <BasicButton
+            variant="contained"
+            endIcon={<AddIcon />}
+            onClick={navigateServices}
+          >
             Learn More{" "}
           </BasicButton>
         </Grid>
       </Grid>
-      <Box sx={{ textAlign: "center", mt: 3 }} gutterBottom>
-        <BasicButton variant="outlined">Load More</BasicButton>
+      <Box sx={{ textAlign: "center", mt: 3 }} gutterBottom py={7}>
+        <BasicButton variant="outlined" onClick={navigateToContactnow}>
+          Book Now
+        </BasicButton>
       </Box>
     </Container>
   );

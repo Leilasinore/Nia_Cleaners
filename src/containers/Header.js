@@ -1,5 +1,5 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   Box,
   AppBar,
@@ -12,6 +12,12 @@ import {
 } from "@mui/material";
 import BasicButton from "../components/BasicButton";
 const Header = () => {
+  const navigate = useNavigate();
+
+  const navigateToContacts = () => {
+    // 👇️ navigate to /contacts
+    navigate("/contactus");
+  };
   return (
     <Box>
       <AppBar
@@ -57,7 +63,11 @@ const Header = () => {
             </Box>
 
             <Box sx={{ flexGrow: 0 }}>
-              <BasicButton variant="contained" sx={{ color: "white" }}>
+              <BasicButton
+                variant="contained"
+                sx={{ color: "white" }}
+                onClick={navigateToContacts}
+              >
                 Book Now!
               </BasicButton>
             </Box>

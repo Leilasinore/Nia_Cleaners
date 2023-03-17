@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "../components/Image";
+import { useNavigate } from "react-router-dom";
 import HeroImage from "../assets/images/hero.svg";
 import { Grid, Box, Container } from "@mui/material";
 import {
@@ -11,6 +12,12 @@ import {
 } from "@mui/material";
 import BasicButton from "../components/BasicButton";
 const Hero = () => {
+  const navigate = useNavigate();
+
+  const navigateToContactus = () => {
+    // 👇️ navigate to /contacts
+    navigate("/contactus");
+  };
   return (
     <Container maxWidth="xl">
       <Box py={2}>
@@ -41,14 +48,18 @@ const Hero = () => {
             </Box>
             <Stack sx={{ py: 2 }} direction="row" spacing={3}>
               <FormControl>
-                <Select value="Carpet Cleaning">
+                <Select value="Carpet Cleaning" onChange={navigateToContactus}>
                   <MenuItem value="Whole House Cleaning">
                     Whole House Cleaning
                   </MenuItem>
                   <MenuItem value="Carpet Cleaning">Carpet & Laundry</MenuItem>
                 </Select>
               </FormControl>
-              <BasicButton variant="outlined" sx={{ padding: 1, width: 200 }}>
+              <BasicButton
+                variant="outlined"
+                sx={{ padding: 1, width: 200 }}
+                onClick={navigateToContactus}
+              >
                 Book Now
               </BasicButton>
             </Stack>
