@@ -8,7 +8,7 @@ const ContactUs = () => {
   return (
     <div>
       <Header4 />
-      <ContactUs/>
+      <Contactus />
       <Divider />
       <Footer />
     </div>
