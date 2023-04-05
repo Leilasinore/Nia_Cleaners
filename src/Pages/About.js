@@ -1,14 +1,15 @@
 import React from "react";
-import Header from "../containers/Header";
 import Heroabout from "../containers/Heroabout";
 import Mission from "../containers/Mission";
 import { Divider } from "@mui/material";
 import Footer from "../containers/Footer"
 
+import Header4 from "../containers/Header4";
+
 const About = () => {
   return (
     <>
-      <Header />
+      <Header4 />
       <Divider />
       <Heroabout />
       <Divider />

@@ -1,16 +1,18 @@
-import React from 'react'
-import Header from '../containers/Header'
+import React from "react";
 import Footer from "../containers/Footer";
-import { Divider } from '@mui/material';
+import Contactus from "../containers/Contactus";
+import { Divider } from "@mui/material";
+import Header4 from "../containers/Header4";
 
 const ContactUs = () => {
   return (
     <div>
-      <Header />
+      <Header4 />
+      <ContactUs/>
       <Divider />
-      <Footer  />
+      <Footer />
     </div>
   );
-}
+};
 
-export default ContactUs
+export default ContactUs;
